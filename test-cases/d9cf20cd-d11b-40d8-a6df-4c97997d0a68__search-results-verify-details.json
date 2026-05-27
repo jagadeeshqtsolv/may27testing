@@ -1,0 +1,65 @@
+{
+  "id": "search-results-verify-details",
+  "testPlanId": "d9cf20cd-d11b-40d8-a6df-4c97997d0a68",
+  "requirementId": "7ec70db9-0535-4c01-9d3f-a829ed974fde",
+  "suiteName": "Product Search & Add to Cart E2E",
+  "case": {
+    "id": "search-results-verify-details",
+    "title": "Search for a product and verify search result details",
+    "priority": "P2",
+    "platforms": [
+      "chrome"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "open-amazon-homepage",
+        "action": "openUrl",
+        "targetDescription": "Navigate to Amazon India homepage",
+        "value": "https://www.amazon.in/"
+      },
+      {
+        "id": "fill-search-bar",
+        "action": "fill",
+        "targetDescription": "Enter product name in search bar",
+        "locatorHint": "#twotabsearchtextbox",
+        "value": "samsung s26 ultra"
+      },
+      {
+        "id": "tap-search-button",
+        "action": "tap",
+        "targetDescription": "Click search button",
+        "locatorHint": "#nav-search-submit-button"
+      },
+      {
+        "id": "assert-product-name",
+        "action": "assertContainsText",
+        "targetDescription": "Product name is visible in first search result",
+        "locatorHint": "div.s-main-slot div[data-component-type='s-search-result']:nth-child(1) h2 a",
+        "assertion": "samsung s26 ultra"
+      },
+      {
+        "id": "assert-product-price",
+        "action": "assertVisible",
+        "targetDescription": "Product price is visible in first search result",
+        "locatorHint": "div.s-main-slot div[data-component-type='s-search-result']:nth-child(1) span.a-price"
+      },
+      {
+        "id": "assert-product-rating",
+        "action": "assertVisible",
+        "targetDescription": "Product rating is visible in first search result",
+        "locatorHint": "div.s-main-slot div[data-component-type='s-search-result']:nth-child(1) span.a-icon-alt"
+      },
+      {
+        "id": "assert-product-image",
+        "action": "assertVisible",
+        "targetDescription": "Product image is visible in first search result",
+        "locatorHint": "div.s-main-slot div[data-component-type='s-search-result']:nth-child(1) img"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}
