@@ -25,6 +25,9 @@ on:
         description: "AutomationAI run ID"
         required: true
 
+permissions:
+  contents: read
+
 jobs:
   run-tests:
     runs-on: ubuntu-latest
@@ -51,7 +54,7 @@ jobs:
         env:
           AUTOM_ENVIRONMENT: ${{ inputs.environment }}
         run: |
-          SPEC_PATHS_ARG=${{ inputs.spec_paths }}
+          SPEC_PATHS_ARG="${{ inputs.spec_paths }}"
           GREP_ARG=""
           if [ -n "${{ inputs.grep }}" ]; then
             GREP_ARG="--grep ${{ inputs.grep }}"

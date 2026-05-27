@@ -1,0 +1,78 @@
+{
+  "id": "search-add-to-cart-with-variation",
+  "testPlanId": "d9cf20cd-d11b-40d8-a6df-4c97997d0a68",
+  "requirementId": "7ec70db9-0535-4c01-9d3f-a829ed974fde",
+  "suiteName": "Product Search & Add to Cart E2E",
+  "case": {
+    "id": "search-add-to-cart-with-variation",
+    "title": "Search, select product variation, and add to cart",
+    "priority": "P1",
+    "platforms": [
+      "chrome",
+      "firefox"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "open-amazon-homepage",
+        "action": "openUrl",
+        "targetDescription": "Navigate to Amazon India homepage",
+        "value": "https://www.amazon.in/"
+      },
+      {
+        "id": "fill-search-bar",
+        "action": "fill",
+        "targetDescription": "Enter product name in search bar",
+        "locatorHint": "#twotabsearchtextbox",
+        "value": "samsung s26 ultra"
+      },
+      {
+        "id": "tap-search-button",
+        "action": "tap",
+        "targetDescription": "Click search button",
+        "locatorHint": "#nav-search-submit-button"
+      },
+      {
+        "id": "tap-first-product",
+        "action": "tap",
+        "targetDescription": "Click first product in results",
+        "locatorHint": "div.s-main-slot div[data-component-type='s-search-result']:nth-child(1) h2 a"
+      },
+      {
+        "id": "select-variation",
+        "action": "tap",
+        "targetDescription": "Select first available product variation (e.g., color)",
+        "locatorHint": ".a-row .a-button-inner input[type='radio']"
+      },
+      {
+        "id": "tap-add-to-cart",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart button",
+        "locatorHint": "#add-to-cart-button"
+      },
+      {
+        "id": "assert-cart-confirmation",
+        "action": "assertVisible",
+        "targetDescription": "Cart confirmation message is visible",
+        "locatorHint": "#attachDisplayAddBaseAlert"
+      },
+      {
+        "id": "tap-cart-icon",
+        "action": "tap",
+        "targetDescription": "Click cart icon",
+        "locatorHint": "#nav-cart"
+      },
+      {
+        "id": "assert-product-in-cart",
+        "action": "assertContainsText",
+        "targetDescription": "Product is present in cart",
+        "locatorHint": ".sc-list-item-content",
+        "assertion": "samsung s26 ultra"
+      }
+    ],
+    "tags": [
+      "@e2e",
+      "@regression"
+    ]
+  }
+}
