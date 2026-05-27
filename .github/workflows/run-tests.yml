@@ -38,8 +38,6 @@ jobs:
           node-version: '22'
 
       - name: Install dependencies
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [ -f package-lock.json ]; then
             npm ci
