@@ -1,0 +1,68 @@
+{
+  "id": "add-product-to-cart",
+  "testPlanId": "d378037a-5263-45b0-b944-9edc2246446a",
+  "requirementId": "7ec70db9-0535-4c01-9d3f-a829ed974fde",
+  "suiteName": "Product Search & Add to Cart - Functional",
+  "case": {
+    "id": "add-product-to-cart",
+    "title": "User can add a product to the cart and see confirmation",
+    "priority": "P0",
+    "platforms": [
+      "chrome",
+      "firefox",
+      "safari",
+      "edge"
+    ],
+    "preconditions": [],
+    "steps": [
+      {
+        "id": "step1",
+        "action": "openUrl",
+        "targetDescription": "Navigate to Amazon India homepage",
+        "value": "https://www.amazon.in/"
+      },
+      {
+        "id": "step2",
+        "action": "fill",
+        "targetDescription": "Enter product name in search bar",
+        "locatorHint": "id=twotabsearchtextbox",
+        "value": "samsung s26 ultra"
+      },
+      {
+        "id": "step3",
+        "action": "tap",
+        "targetDescription": "Click search button",
+        "locatorHint": "id=nav-search-submit-button"
+      },
+      {
+        "id": "step4",
+        "action": "tap",
+        "targetDescription": "Click first product in search results",
+        "locatorHint": "data-component-type=s-search-result"
+      },
+      {
+        "id": "step5",
+        "action": "tap",
+        "targetDescription": "Click Add to Cart button",
+        "locatorHint": "id=add-to-cart-button"
+      },
+      {
+        "id": "step6",
+        "action": "assertVisible",
+        "targetDescription": "Confirmation message is visible",
+        "locatorHint": "id=sw-gtc"
+      },
+      {
+        "id": "step7",
+        "action": "assertContainsText",
+        "targetDescription": "Cart icon shows item count",
+        "locatorHint": "id=nav-cart-count",
+        "assertion": "1"
+      }
+    ],
+    "tags": [
+      "@functional",
+      "@regression"
+    ]
+  }
+}
